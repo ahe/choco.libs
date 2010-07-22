@@ -17,7 +17,7 @@ var ChocoUtils = function() {
 				var confirmMsg = $(this).attr('confirm');
 				var a = $(this);
 
-				if(confirmMsg.length > 0) {
+				if(confirmMsg) {
 					if(confirm(confirmMsg)) {
 						app.runRoute(a.attr('verb'), a.attr('href'));
 					}

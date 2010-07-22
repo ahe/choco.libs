@@ -1,5 +1,7 @@
 var ChocoUtils = function() {
 	return {
+		// Load all the models (ajax) and call the callback method when they are all available.
+		// The Choco app should be launched in this callback.
 		loadModels: function(models, callback) {
 			if(models.length == 0) { callback.call(this); }
 
@@ -12,6 +14,8 @@ var ChocoUtils = function() {
 			});
 		},
 
+		// Allows you to add DELETE links to your templates.
+		// <a href="#/posts/XXX" verb="delete" confirm="Are you sure?">...</a>
 		activateDeleteLinks: function(app) {
 			$('a[verb=delete]').click(function() {
 				var confirmMsg = $(this).attr('confirm');
@@ -28,7 +32,9 @@ var ChocoUtils = function() {
 				return false;
 			});
 		},
-
+		
+		// A call to this function extends all your js-models with the methods
+		// provided by the plugin.
 		modelPlugin: function(plugin) {
 			$.extend(Model.ClassMethods, plugin.modelsClassMethods);
 			$.extend(Model.InstanceMethods, plugin.modelsInstanceMethods);

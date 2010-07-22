@@ -36,9 +36,18 @@
 	// The render method can also trigger an event for you :
 	// cx.render({ template: 'posts/index', event: 'posts_loaded', data: { test: "hello" } })
 	//
+	// You can use Choco layouts too, just use the option with the same name :
+	// cx.render({ template: 'posts/index', layout: MainLayout }
+	// The MainLayout is a Mustache template, it must exist into your app/views/layouts folder.
+	// You can easily generate a new layout : $ choco generate layout main  
+	//
+	//
 	// If you don't want to render anything, and then disable the default behavior for 
 	// the current action, just call :
 	// cx.render()
+	//
+	// In development mode (when using a localhost URL), a random number is appended at the template name.
+	// This will prevent your web server from rendering "304 not modifed" templates.
 	
 	
   Sammy.SmartRenderer = function(app, viewPath) {

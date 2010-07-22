@@ -1,3 +1,8 @@
+// This plugin adds a load() method to your js-models.
+// An Ajax request is sent to your server and the received JSON is parsed.
+// Don't forget to configure your persistence URL :
+// persistence: Model.RestPersistence("/url")
+
 var LoadPlugin = {
 	modelsClassMethods : {
 		load: function(callback) {

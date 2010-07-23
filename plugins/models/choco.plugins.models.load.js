@@ -12,6 +12,7 @@ var LoadPlugin = {
 			$.getJSON(this.persistence.path(), function(data) {
 				$.each(data, function(i, record) {
 					var record_data = record[modelName];
+					if(!record_data) { record_data = record; }
 					var model = new currentModel({ id: record_data.id });
 					model.merge(record_data);
 					currentModel.add(model);

@@ -91,7 +91,7 @@
 				if(this.path.indexOf('localhost > 0')) {
 					random = '?' + String((new Date()).getTime()).replace(/\D/gi,'');
 				}
-				this.partial(app.VIEW_PATH + options['template'] + '.template'+random, {}, function(html) {
+				this.partial(app.VIEW_PATH + options['template'] + '.template'+random, options['data'], function(html) {
 					
 					if(options['layout']) {
 							var view = {

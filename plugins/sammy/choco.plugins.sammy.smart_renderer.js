@@ -41,6 +41,10 @@
 	// The MainLayout is a Mustache template, it must exist into your app/views/layouts folder.
 	// You can easily generate a new layout : $ choco generate layout main  
 	//
+	// If don't want to append the HTML in the selector element, you can use a callback method :
+	// cx.render({ template: 'posts/index', callback: function(html) {
+	//   alert(html);
+	// }});
 	//
 	// If you don't want to render anything, and then disable the default behavior for 
 	// the current action, just call :
@@ -98,7 +102,11 @@
 							var html = Mustache.to_html(options['layout'], view);
 					}
 					
-					$(selector).html(html);
+					if(options['callback']) {
+						options['callback'](html);
+					} else {
+						$(selector).html(html);
+					}
 					
 					if(options['event']) {
 						this.app.trigger(options['event'], options['data']);

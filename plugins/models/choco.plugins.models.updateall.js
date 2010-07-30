@@ -4,8 +4,8 @@
 
 var UpdateAllPlugin = {
 	modelsClassMethods : {
-		updateAll: function(callback) {
-			var records  = this.all();
+		updateAll: function(records, callback) {
+			var records  = (records == null) ? this.all() : records;
 			var name     = this._name.toLowerCase();
 			var params   = { records: {} };
 			params[name] = [];
